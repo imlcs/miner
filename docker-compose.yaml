@@ -5,7 +5,7 @@ services:
     image: ghcr.io/armoniax/amnod:1.0.4
     container_name: miner
     working_dir: /miner
-    entrypoint: ["./bin/start.sh", "--disable-replay-opts --enable-account-queries=true --snapshot /latest.bin"]
+    entrypoint: ["./bin/start.sh", "--disable-replay-opts --enable-account-queries=true --snapshot ./latest.bin"]
     # entrypoint: ["./bin/start.sh", "--disable-replay-opts --enable-account-queries=true"]
     restart: always
     privileged: true
@@ -15,7 +15,6 @@ services:
       - "9555:9555"
     volumes:
       - ./:/miner
-      - ../latest.bin:/latest.bin
     dns:
       - 114.114.114.114
       - 8.8.8.8
